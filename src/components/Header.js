@@ -1,22 +1,25 @@
 import React, { useState } from 'react'
 import { Container, Nav, Navbar, NavDropdown, } from 'react-bootstrap'
 import '../App.css'
+import '../Responsive.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faBook, faBullhorn, faEnvelope, faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faBook, faBullhorn, faEnvelope, faTimes, faBars, faUserPlus, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header() {
     const [expanded, setExpanded] = useState(false);
     return (
         <Navbar expand="lg" className="p-0 navbar">
             <Container className='NavContainer'>
-                <Navbar.Brand href="#" className='p-0'>
+                <Navbar.Brand href="#" className='p-0 navBrand'>
                     <img
                         src="./logo.png"
                         width="80"
                         alt="Arya Pathshala Logo"
                     />
                 </Navbar.Brand>
+
+                <h1 className='m-0 mt-2'>आर्य पाठशाला</h1>
 
                 <Navbar.Toggle
                     aria-controls="my-nav"
@@ -30,7 +33,7 @@ export default function Header() {
                 </Navbar.Toggle>
 
                 <Navbar.Collapse id="my-nav">
-                    <Nav className="m-auto fw-bold text-center gap-3">
+                    <Nav className="m-auto fw-bold text-center gap-2 myNav">
                         {/* Home */}
                         <Nav.Link href="#home" active>
                             <FontAwesomeIcon icon={faHome} className="navIcon" /> मुखपृष्ठ
@@ -66,7 +69,19 @@ export default function Header() {
 
                     </Nav>
 
-
+                    {/* Login & Signup Buttons */}
+                    <div className="auth-btn">
+                        <a href="#signin">
+                            <button className="btn-login" type="button">
+                                <FontAwesomeIcon icon={faSignInAlt} className="me-1" /> प्रवेशः
+                            </button>
+                        </a>
+                        <a href="#signup">
+                            <button className="btn-signup" type="button">
+                                <FontAwesomeIcon icon={faUserPlus} className="me-1" /> पञ्जीकरणम्
+                            </button>
+                        </a>
+                    </div>
                 </Navbar.Collapse>
             </Container >
         </Navbar >

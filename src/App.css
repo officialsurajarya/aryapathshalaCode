@@ -1,9 +1,18 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  transition: all 0.3s ease;
+  box-sizing: border-box !important;
+  scroll-behavior: smooth !important;
+  transition: all 0.3s ease !important;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 :root {
@@ -24,14 +33,15 @@
   font-family: 'Inter', 'Tiro Devanagari Sanskrit', 'Noto Serif Devanagari', sans-serif;
 }
 
-section {
-  padding-bottom: 60px;
+.container-fluid {
+  padding: 30px 0;
 }
 
 
 /* Navbar */
 
 .navbar {
+  background: linear-gradient(135deg, var(--background-color) 0%, var(--light-bg) 100%);
   border-bottom: var(--primary-color) 2px solid;
 }
 
@@ -39,8 +49,158 @@ section {
   color: #B22222;
 }
 
+.navbar-toggler {
+  border: none !important;
+  color: var(--primary-color) !important;
+}
+
 .navbar-toggler:focus {
-  outline: 0 !important;
+  outline: none !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+.NavContainer h1 {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-family: 'Tiro Devanagari Sanskrit', 'Noto Serif Devanagari', serif;
+  display: none;
+}
+
+.nav-link {
+  color: var(--text-color) !important;
+  padding: 10px 15px !important;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav-link:hover::before {
+  left: 100%;
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+.nav-link.active {
+  color: var(--primary-color) !important;
+  background-color: rgba(212, 175, 55, 0.2);
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+  background: var(--light-bg) !important;
+  border: 1px solid var(--secondary-color) !important;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(199, 54, 89, 0.1) !important;
+  padding: 10px 0 !important;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+  color: var(--text-color) !important;
+  font-weight: 500 !important;
+  padding: 10px 20px !important;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Dropdown Item Hover Effect */
+.dropdown-item:hover {
+  background-color: rgba(212, 175, 55, 0.15) !important;
+  color: var(--primary-color) !important;
+}
+
+
+/* ===== Auth Buttons Wrapper ===== */
+.auth-btn {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Login Button */
+.btn-login {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+.btn-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btn-login:hover {
+  color: white;
+}
+
+.btn-login:hover::before {
+  left: 0;
+}
+
+/* Signup Button (Fixed to be opposite of Login) */
+.btn-signup {
+  background: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  color: var(--light-bg);
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+.btn-signup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--light-bg);
+  transition: right 0.3s ease;
+  z-index: -1;
+}
+
+.btn-signup:hover {
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-signup:hover::before {
+  right: 0;
+}
+
+.auth-btn {
+  display: flex;
+  justify-content: center;
 }
