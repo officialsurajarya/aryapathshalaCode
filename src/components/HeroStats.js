@@ -35,15 +35,15 @@ const HeroStats = () => {
     }, [counters]);
 
     return (
-        <div className="hero-stats">
+        <div className="h-hero-stats">
             {statsData.map((stat, index) => (
-                <div key={index} className="stat-item">
-                    <span className="stat-number-wrapper">
-                        <span className="stat-number">{counters[index]}</span>
-                        <span className="plus">+</span>
+                <div key={index} className="h-stat-item">
+                    <span className="h-stat-number-wrapper">
+                        <span className="h-stat-number">{counters[index]}</span>
+                        <span className="h-plus">+</span>
                     </span>
                     <br />
-                    <span className="stat-label">{stat.label}</span>
+                    <span className="h-stat-label">{stat.label}</span>
                 </div>
             ))}
         </div>
