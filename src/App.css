@@ -24,8 +24,8 @@ h6 {
   --background-color: #FDEAA8;
   --text-color: #2E2E2E;
   --light-bg: #FAF4E6;
-  --gradient-to-right: linear-gradient(to right, #D4AF37, #FDEAA8);
-  --gradient-to-left: linear-gradient(to left, #D4AF37, #FDEAA8);
+  --gradient-to-right: linear-gradient(to right, var(--background-color), var(--light-bg));
+  --gradient-to-top: linear-gradient(to bottom, var(--background-color), var(--background-color), var(--light-bg));
 }
 
 .App {
@@ -35,13 +35,14 @@ h6 {
 
 .container-fluid {
   padding: 30px 0;
+  background: var(--gradient-to-top);
 }
 
 
-/* Navbar */
+/* Navbar ----------------------------------------------------------------------*/
 
 .navbar {
-  background: linear-gradient(135deg, var(--background-color) 0%, var(--light-bg) 100%);
+  background: var(--gradient-to-right);
   border-bottom: var(--primary-color) 2px solid;
 }
 
@@ -109,7 +110,6 @@ h6 {
   padding: 10px 0 !important;
 }
 
-/* Dropdown Items */
 .dropdown-item {
   color: var(--text-color) !important;
   font-weight: 500 !important;
@@ -117,7 +117,6 @@ h6 {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Dropdown Item Hover Effect */
 .dropdown-item:hover {
   background-color: rgba(212, 175, 55, 0.15) !important;
   color: var(--primary-color) !important;
@@ -131,13 +130,12 @@ h6 {
   align-items: center;
 }
 
-/* Login Button */
 .btn-login {
   background: transparent;
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
   padding: 8px 20px;
-  border-radius: 25px;
+  border-radius: 40px;
   font-weight: 500;
   position: relative;
   overflow: hidden;
@@ -165,13 +163,12 @@ h6 {
   left: 0;
 }
 
-/* Signup Button (Fixed to be opposite of Login) */
 .btn-signup {
   background: var(--primary-color);
   border: 2px solid var(--primary-color);
   color: var(--light-bg);
   padding: 8px 20px;
-  border-radius: 25px;
+  border-radius: 40px;
   font-weight: 500;
   position: relative;
   overflow: hidden;
@@ -202,5 +199,52 @@ h6 {
 
 .auth-btn {
   display: flex;
+  justify-content: center;
+}
+
+
+/* Home ---------------------------------------------------------------*/
+
+.hero-content {
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-title .sanskrit-text {
+  padding-top: 0.3rem;
+}
+
+.sanskrit-text {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 600;
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--main-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 400;
+  color: var(--ash);
+  display: block;
+  font-style: italic;
+}
+
+.hero-description {
+  text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.heroVisual {
+  display: flex;
+  align-items: center;
   justify-content: center;
 }

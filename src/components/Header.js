@@ -19,7 +19,7 @@ export default function Header() {
                     />
                 </Navbar.Brand>
 
-                <h1 className='m-0 mt-2'>आर्य पाठशाला</h1>
+                <h1 className='m-0 mt-2'>Arya Pathshala</h1>
 
                 <Navbar.Toggle
                     aria-controls="my-nav"

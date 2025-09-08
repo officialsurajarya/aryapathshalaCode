@@ -1,0 +1,32 @@
+.hero-stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 20px;
+}
+
+.stat-item {
+    font-family: Arial, sans-serif;
+}
+
+.stat-number-wrapper {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.plus {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 1rem;
+    margin-top: 5px;
+    display: inline-block;
+    color: var(--ash);
+}
+
+.stat-number {
+    transition: all 0.2s ease-in-out;
+}
