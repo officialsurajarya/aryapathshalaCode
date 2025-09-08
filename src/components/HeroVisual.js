@@ -48,7 +48,7 @@ const HeroVisual = () => {
             }
         }, 2000);
         return () => clearInterval(interval);
-    }, [isHovered]);
+    });
 
     // Mouse tracking for parallax effect
     const handleMouseMove = (e) => {
@@ -72,9 +72,10 @@ const HeroVisual = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    height: '60vh',
                     position: 'relative',
-                    overflow: 'hidden'
+                    // overflow: 'hidden'
+                    height: '420px',
+
                 }}
             >
                 {/* Dynamic Background Particles */}
@@ -95,8 +96,8 @@ const HeroVisual = () => {
                         position: 'relative',
                         width: '400px',
                         height: '400px',
-                        maxWidth: '90vw',
-                        maxHeight: '90vw',
+                        // maxWidth: '90vw',
+                        // maxHeight: '90vw',
                         transform: `perspective(1000px) rotateX(${mousePosition.y * 0.5}deg) rotateY(${mousePosition.x * 0.5}deg)`
                     }}
                 >
@@ -237,11 +238,12 @@ const HeroVisual = () => {
                 {/* Navigation Dots */}
                 <div style={{
                     position: 'absolute',
-                    bottom: '1%',
+                    bottom: '0%',
                     left: '50%',
                     transform: 'translateX(-50%)',
                     display: 'flex',
-                    gap: '12px'
+                    gap: '12px',
+                    zIndex: 2,
                 }}>
                     {vedas.map((veda, index) => (
                         <button

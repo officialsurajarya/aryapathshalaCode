@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import '../App.css'
 import '../Responsive.css'
 import HeroStats from './HeroStats'
-import { faPlayCircle, faSignInAlt, faUserPlus, faVideo } from '@fortawesome/free-solid-svg-icons'
+import { faPlayCircle, faVideo } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import HeroVisual from './HeroVisual'
 
@@ -34,12 +34,12 @@ export default function Home() {
                         {/* Hero Action */}
                         <div className="auth-btn">
                             <a href="#signin">
-                                <button className="btn-login fw-bold fs-5" type="button">
+                                <button className="btn-login fw-bold fs-lg-5" type="button">
                                     <FontAwesomeIcon icon={faPlayCircle} className="me-1 " /> <br />अध्ययन आरंभ करें
                                 </button>
                             </a>
                             <a href="#signup">
-                                <button className="btn-signup fw-bold fs-5" type="button">
+                                <button className="btn-signup fw-bold fs-lg-5" type="button">
                                     <FontAwesomeIcon icon={faVideo} className="me-1" /> <br /> पाठ्यक्रम देखें
                                 </button>
                             </a>

@@ -1,21 +1,9 @@
-
 /* Courses Section Styles */
 .courses {
     padding: 80px 0;
-    background: linear-gradient(135deg, var(--light-bg) 0%, var(--background-color) 50%, var(--light-bg) 100%);
+    background: var(--gradient-to-top);
     position: relative;
     overflow: hidden;
-}
-
-.courses::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20v20h40V20H20z'/%3E%3C/g%3E%3C/svg%3E") repeat;
-    z-index: 0;
 }
 
 .courses .container {
@@ -28,7 +16,7 @@
     font-size: 3rem;
     font-weight: bold;
     color: var(--primary-color);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     position: relative;
     display: inline-block;
 }
@@ -36,7 +24,7 @@
 .section-header .section-title::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
     width: 80px;
@@ -49,7 +37,8 @@
     font-size: 1.2rem;
     color: var(--text-color);
     opacity: 0.8;
-    max-width: 600px;
+    padding-top: 10px !important;
+    /* max-width: 600px; */
     margin: 0 auto;
 }
 
@@ -69,7 +58,7 @@
     background: transparent;
     border: 2px solid var(--secondary-color);
     color: var(--text-color);
-    padding: 12px 25px;
+    padding: 6px 10px;
     margin: 0 10px 10px 0;
     border-radius: 30px;
     font-weight: 500;
