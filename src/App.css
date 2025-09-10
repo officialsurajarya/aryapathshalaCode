@@ -31,6 +31,7 @@ h6 {
 .App {
   background-color: var(--background-color);
   font-family: 'Inter', 'Tiro Devanagari Sanskrit', 'Noto Serif Devanagari', sans-serif;
+  padding-top: 80px;
 }
 
 .container-fluid {
@@ -227,6 +228,7 @@ h6 {
 }
 
 .subtitle {
+  padding-bottom: 20px;
   font-size: clamp(1.1rem, 3vw, 1.4rem);
   font-weight: 400;
   color: var(--ash);
@@ -248,3 +250,8 @@ h6 {
   align-items: center;
   justify-content: center;
 }
+
+.input-group {
+  border-radius: 40px !important;
+}
+

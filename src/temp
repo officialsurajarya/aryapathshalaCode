@@ -5,3 +5,29 @@
 // npm i--save @fortawesome/free-brand-svg-icons
 
 // npm i--save @fortawesome/react-fontawesome@latest
+
+
+
+✅ How to use it
+
+In your App.jsx or wherever needed:
+
+import React, { useState } from 'react';
+import Loader from './Loader';
+import MainApp from './MainApp'; // Your main content
+
+function App() {
+    const [loading, setLoading] = useState(true);
+
+    return (
+        <div>
+            {loading && <Loader />}
+            <MainApp />
+        </div>
+    );
+}
+
+export default App;
+
+
+You can further control when to hide the loader by lifting the state up or using events.

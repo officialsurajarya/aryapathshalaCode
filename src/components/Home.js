@@ -9,7 +9,7 @@ import HeroVisual from './HeroVisual'
 
 export default function Home() {
     return (
-        <Container fluid >
+        <Container fluid className='home pb-lg-5' id="home">
             <Container>
                 <Row>
                     <Col className='col-lg-6 col-md-12 order-lg-1 order-2'>

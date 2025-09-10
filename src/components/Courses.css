@@ -11,6 +11,15 @@
     z-index: 1;
 }
 
+.swiper-wrapper {
+    align-items: center;
+}
+
+.swiper-slide {
+    transition: transform 0.3s ease;
+}
+
+
 /* Section Header */
 .section-header .section-title {
     font-size: 3rem;
@@ -38,7 +47,6 @@
     color: var(--text-color);
     opacity: 0.8;
     padding-top: 10px !important;
-    /* max-width: 600px; */
     margin: 0 auto;
 }
 
@@ -243,6 +251,7 @@
 .course-footer {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
     align-items: center;
 }
 
@@ -335,4 +344,38 @@
 
 .course-item.fade-in {
     animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--primary-color);
+    /* Use your theme color */
+    /* background-color: rgba(255, 255, 255, 0.2); */
+    /* optional: semi-transparent bg */
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-bg) !important;
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: var(--secondary-color);
+    /* Hover color */
+    transform: scale(1.1);
+}
+
+/* Optional: smaller arrows for mobile */
+@media (max-width: 768px) {
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 30px;
+        height: 30px;
+    }
 }

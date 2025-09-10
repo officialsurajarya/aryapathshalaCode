@@ -10,7 +10,29 @@
     .auth-btn {
         margin: 0.5rem 0 1rem 0;
     }
+
+    .App {
+        padding-top: 50px !important;
+    }
+
+    .courses {
+        padding: 30px 0 !important;
+    }
+
+    .btn-enroll {
+        padding: 8px 10px;
+    }
+
+
+    .LibraryHeading {
+        width: 90%;
+    }
+
+    .LibraryFilterBar select {
+        padding: 0.5rem !important;
+    }
 }
+
 
 
 
