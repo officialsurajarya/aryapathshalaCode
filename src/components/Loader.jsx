@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './Loader.css'; // Move the CSS from your HTML file into this CSS file
+import './Loader.css';
 
-const Loader = () => {
+const Loader = ({ onFinish }) => { // ✅ Accept onFinish to inform parent when done
     const progressFillRef = useRef(null);
     const progressPercentRef = useRef(null);
     const loadingTextRef = useRef(null);
@@ -29,7 +29,7 @@ const Loader = () => {
             });
         };
 
-        intervalId = setInterval(updateProgress, Math.random() * 300 + 200);
+        intervalId = setInterval(updateProgress, 300);
 
         return () => clearInterval(intervalId);
     }, []);
@@ -51,18 +51,17 @@ const Loader = () => {
             }
 
             if (progress >= 100) {
-                clearInterval();
                 setTimeout(() => {
                     setFadeOut(true);
                     setTimeout(() => {
-                        if (document.getElementById('loader')) {
-                            document.getElementById('loader').style.display = 'none';
+                        if (onFinish) {
+                            onFinish(); // ✅ Notify parent to hide loader
                         }
                     }, 800);
                 }, 1000);
             }
         }
-    }, [progress, textIndex]);
+    }, [progress, textIndex, onFinish]);
 
     return (
         <div id="loader" className={`loader-container ${fadeOut ? 'fade-out' : ''}`}>
@@ -79,6 +78,8 @@ const Loader = () => {
                         </div>
                     </div>
                 </div>
+
+
 
                 <div className="loader-brand">
                     <h1 className="sanskrit-title">आर्य पाठशाला</h1>

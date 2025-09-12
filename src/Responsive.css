@@ -55,3 +55,167 @@
         width: 60px !important;
     }
 }
+
+/* Header  */
+@media (max-width: 991px) {
+    .navbar {
+        height: auto;
+        padding: 0.5rem 0;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-item {
+        display: inline-block;
+        margin: 5px 0;
+    }
+
+    .auth-btn {
+        margin: 10px 0;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+}
+
+/* Home */
+@media (max-width: 768px) {
+
+    .hero-stats {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .hero-actions {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-primary-cta,
+    .btn-secondary-cta {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .visual-container {
+        width: 250px;
+        height: 250px;
+    }
+
+    .main-visual {
+        width: 250px;
+        height: 200px;
+    }
+
+    .sanskrit-symbol {
+        font-size: 5rem;
+    }
+
+
+    .floating-element {
+        width: 0px;
+        height: 0px;
+    }
+
+
+    .floating-element img {
+        width: 40px;
+    }
+
+    .hero-description {
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-stats {
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    .scroll-indicator {
+        bottom: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Decorative Elements ===== */
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-elements::before,
+.floating-elements::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+}
+
+.floating-elements::before {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    right: -150px;
+    animation: float 20s linear infinite;
+}
+
+.floating-elements::after {
+    width: 200px;
+    height: 200px;
+    bottom: 10%;
+    left: -100px;
+    animation: float 15s linear infinite reverse;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(360deg);
+    }
+}
