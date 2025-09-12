@@ -7,7 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faBook, faBullhorn, faEnvelope, faTimes, faBars, faUserPlus, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header({ onCategorySelect }) {
-    const [expanded, setExpanded] = useState(false);
+    const [expanded, setExpanded] = useState(false); // for mobile toggle
+    const [coursesOpen, setCoursesOpen] = useState(false); // for Courses dropdown
+    const [libraryOpen, setLibraryOpen] = useState(false); // for Library dropdown
+
     const navRef = useRef();
 
     // Close navbar if clicked outside
@@ -24,7 +27,7 @@ export default function Header({ onCategorySelect }) {
     // Handle category click
     const handleCategoryClick = (category) => {
         onCategorySelect(category);
-        setExpanded(false); // ✅ Close menu after click
+        setExpanded(false);
     };
 
     return (
@@ -53,7 +56,14 @@ export default function Header({ onCategorySelect }) {
                             <FontAwesomeIcon icon={faHome} className="navIcon" /> मुखपृष्ठ
                         </Nav.Link>
 
-                        <NavDropdown title={<><FontAwesomeIcon icon={faBook} /> पाठ्यक्रम</>} id="coursesDropdown">
+                        <NavDropdown
+                            title={<><FontAwesomeIcon icon={faBook} /> पाठ्यक्रम</>}
+                            id="coursesDropdown"
+                            show={coursesOpen}
+                            onMouseEnter={() => setCoursesOpen(true)}
+                            onMouseLeave={() => setCoursesOpen(false)}
+                            onClick={() => setCoursesOpen(!coursesOpen)}
+                        >
                             <NavDropdown.Item onClick={() => handleCategoryClick('ved')}>वेद</NavDropdown.Item>
                             <NavDropdown.Item onClick={() => handleCategoryClick('vedang')}>वेदांग</NavDropdown.Item>
                             <NavDropdown.Item onClick={() => handleCategoryClick('upanishad')}>उपनिषद्</NavDropdown.Item>
@@ -63,10 +73,17 @@ export default function Header({ onCategorySelect }) {
                             <NavDropdown.Item onClick={() => handleCategoryClick('netexam73')}>राष्ट्रीय पात्रता परीक्षा (संस्कृत 73)</NavDropdown.Item>
                         </NavDropdown>
 
-                        <NavDropdown title={<><FontAwesomeIcon icon={faBook} /> पुस्तकालय</>} id="libraryDropdown">
-                            <NavDropdown.Item href="#mainBook" onClick={() => setExpanded(false)}>मूल ग्रन्थ</NavDropdown.Item>
-                            <NavDropdown.Item href="#VaykhyanBook" onClick={() => setExpanded(false)}>व्याख्यान ग्रन्थ</NavDropdown.Item>
-                            <NavDropdown.Item href="#VidhwatLekh" onClick={() => setExpanded(false)}>विद्वत्-लेख एवं शोध पत्र</NavDropdown.Item>
+                        <NavDropdown
+                            title={<><FontAwesomeIcon icon={faBook} /> पुस्तकालय</>}
+                            id="libraryDropdown"
+                            show={libraryOpen}
+                            onMouseEnter={() => setLibraryOpen(true)}
+                            onMouseLeave={() => setLibraryOpen(false)}
+                            onClick={() => setLibraryOpen(!libraryOpen)}
+                        >
+                            <NavDropdown.Item onClick={() => handleCategoryClick('mainBook')}>मूल ग्रन्थ</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => handleCategoryClick('VaykhyanBook')}>व्याख्यान ग्रन्थ</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => handleCategoryClick('VidhwatLekh')}>विद्वत्-लेख एवं शोध पत्र</NavDropdown.Item>
                         </NavDropdown>
 
                         <Nav.Link href="#notices" onClick={() => setExpanded(false)}>

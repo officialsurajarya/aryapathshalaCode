@@ -162,6 +162,7 @@ const HeroVisual = () => {
                             className="visual-backdrop"
                             style={{
                                 position: 'absolute',
+                                overflow: 'hidden !important',
                                 width: '100%',
                                 height: '100%',
                                 background: `linear-gradient(135deg, ${vedas[activeVeda].color}20, rgba(199, 54, 89, 0.1))`,
@@ -190,6 +191,7 @@ const HeroVisual = () => {
                             fontFamily: "'Tiro Devanagari Sanskrit', serif",
                             fontSize: '7rem',
                             color: `${vedas[activeVeda].color}`,
+                            paddingTop: '20px',
                             fontWeight: 600,
                             textAlign: 'center',
                             transition: 'color 1s ease'

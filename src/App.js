@@ -23,7 +23,8 @@ function App() {
           <Header onCategorySelect={setCategoryToScroll} />
           <Home />
           <Courses scrollToCategory={categoryToScroll} />
-          <LibrarySection />
+          <LibrarySection scrollToCategory={categoryToScroll} />
+          {/* <LibrarySection /> */}
           <Notifications />
           <Contact />
           <Footer />

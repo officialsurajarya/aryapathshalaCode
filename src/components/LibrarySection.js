@@ -21,7 +21,8 @@ import {
     faChevronUp
 } from '@fortawesome/free-solid-svg-icons';
 
-const LibrarySection = () => {
+const LibrarySection = ({ scrollToCategory }) => {
+    // const LibrarySection = () => {
     const [activeCategory, setActiveCategory] = useState('all');
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedBook, setSelectedBook] = useState(null);
@@ -30,6 +31,16 @@ const LibrarySection = () => {
     const [expandedCards, setExpandedCards] = useState(new Set());
     const [sortBy, setSortBy] = useState('title');
     const [filterLanguage, setFilterLanguage] = useState('all');
+
+    useEffect(() => {
+        if (scrollToCategory && ['mainBook', 'VaykhyanBook', 'VidhwatLekh'].includes(scrollToCategory)) {
+            setActiveCategory(scrollToCategory);
+            const section = document.getElementById('library');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [scrollToCategory]);
 
     // Sample library data
     const libraryData = {
@@ -270,7 +281,7 @@ const LibrarySection = () => {
     };
 
     return (
-        <section className='py-5' id="library" style={{
+        <section className='py-5 library' id="library" style={{
             background: 'var(--gradient-to-top)',
             paddingBottom: '80px'
         }}>
