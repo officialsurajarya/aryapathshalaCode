@@ -75,6 +75,7 @@ const HeroVisual = () => {
                     position: 'relative',
                     // overflow: 'hidden'
                     height: '420px',
+                    marginBottom: '20px'
 
                 }}
             >

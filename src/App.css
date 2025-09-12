@@ -255,3 +255,15 @@ h6 {
   border-radius: 40px !important;
 }
 
+/* Library CSS */
+
+.form-control:focus {
+  box-shadow: none !important;
+  border-color: none !important;
+  outline: none !important;
+}
+
+.LibrarySearchBar span,
+.LibrarySearchBar input {
+  background-color: var(--light-bg) !important;
+}

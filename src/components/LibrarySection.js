@@ -309,7 +309,6 @@ const LibrarySection = () => {
                         <Col lg={6} md={10} className="mx-auto">
                             <p style={{
                                 fontSize: '1.2rem',
-                                color: 'var(--ash)',
                                 margin: '0 auto !important',
                                 lineHeight: '1.6',
                             }}>
@@ -325,7 +324,10 @@ const LibrarySection = () => {
                 <Row className="mb-4 justify-content-between">
                     <Col lg={6} md={12} className="mb-3 ">
                         <InputGroup className="LibrarySearchBar">
-                            <InputGroup.Text style={{ background: 'white', border: '1px solid var(--border-color, #e2e8f0)' }}>
+                            <InputGroup.Text style={{
+                                background: 'white', border: '1px solid var(--border-color, #e2e8f0)',
+                                borderRadius: '25px 0 0 25px'
+                            }}>
                                 <FontAwesomeIcon icon={faSearch} style={{ color: 'var(--ash)' }} />
                             </InputGroup.Text>
                             <Form.Control
@@ -335,9 +337,10 @@ const LibrarySection = () => {
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 style={{
                                     border: '1px solid var(--border-color, #e2e8f0)',
-                                    // borderLeft: 'none',
+                                    borderLeft: 'none',
                                     fontSize: '1rem',
-                                    padding: '0.75rem'
+                                    padding: '0.75rem',
+                                    borderRadius: '0 25px 25px 0'
                                 }}
                             />
                         </InputGroup>
@@ -350,9 +353,12 @@ const LibrarySection = () => {
                                     value={activeCategory}
                                     onChange={(e) => setActiveCategory(e.target.value)}
                                     style={{
-                                        border: '1px solid var(--border-color, #e2e8f0)',
+                                        border: '1px solid var(--primary-color)',
                                         fontSize: '0.9rem',
-                                        padding: '0.75rem'
+                                        padding: '0.75rem',
+                                        borderRadius: '20px 0',
+                                        backgroundColor: 'var(--light-bg)'
+
                                     }}
                                 >
                                     <option value="all">सभी श्रेणियाँ</option>
@@ -367,9 +373,11 @@ const LibrarySection = () => {
                                     value={filterLanguage}
                                     onChange={(e) => setFilterLanguage(e.target.value)}
                                     style={{
-                                        border: '1px solid var(--border-color, #e2e8f0)',
+                                        border: '1px solid var(--primary-color)',
                                         fontSize: '0.9rem',
-                                        padding: '0.75rem'
+                                        padding: '0.75rem',
+                                        borderRadius: '20px 0',
+                                        backgroundColor: 'var(--light-bg)'
 
                                     }}
                                 >
@@ -384,9 +392,12 @@ const LibrarySection = () => {
                                     value={sortBy}
                                     onChange={(e) => setSortBy(e.target.value)}
                                     style={{
-                                        border: '1px solid var(--border-color, #e2e8f0)',
+                                        border: '1px solid var(--primary-color)',
                                         fontSize: '0.9rem',
-                                        padding: '0.75rem'
+                                        padding: '0.75rem',
+                                        borderRadius: '20px 0',
+                                        backgroundColor: 'var(--light-bg)'
+
 
                                     }}
                                 >

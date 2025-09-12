@@ -51,7 +51,7 @@ const Courses = ({ scrollToCategory }) => {
             <div className="container">
                 <div className="section-header text-center mb-4">
                     <h2 className="section-title">पाठ्यक्रम</h2>
-                    <p className="section-subtitle">
+                    <p className="section-subtitle mx-auto text-center">
                         हमारे संस्कृत एवं अन्य शास्त्रीय विषयों के व्यापक पाठ्यक्रमों को जानिए
                     </p>
                 </div>

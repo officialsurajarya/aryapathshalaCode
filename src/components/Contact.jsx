@@ -8,7 +8,7 @@ export default function Contact() {
         {/* Section Header */}
         <div className="section-header text-center mb-5">
           <h2 className="section-title">हमसे संपर्क करें</h2>
-          <p className="section-subtitle">
+          <p className="section-subtitle mx-auto text-center">
             हम आपकी शास्त्र-अध्ययन यात्रा में मार्गदर्शन के लिए सदैव तत्पर हैं।
           </p>
         </div>
