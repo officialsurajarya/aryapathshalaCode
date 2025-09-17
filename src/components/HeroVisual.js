@@ -105,10 +105,10 @@ const HeroVisual = () => {
                     {/* Floating Veda Elements - Z-index 1 */}
                     {vedas.map((veda, index) => {
                         const positions = [
-                            { top: '10%', left: '20%' },
-                            { top: '20%', right: '15%' },
-                            { bottom: '20%', left: '10%' },
-                            { bottom: '15%', right: '20%' }
+                            { top: '20%', left: '20%' },
+                            { top: '20%', right: '20%' },
+                            { bottom: '20%', left: '15%' },
+                            { bottom: '20%', right: '15%' }
                         ];
 
                         return (

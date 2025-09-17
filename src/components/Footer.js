@@ -100,7 +100,7 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="footer-bottom">
+                <div className="footer-bottom p-3">
                     <p>
                         &copy; 2025 <strong><a href="#">Arya Pathshala</a></strong>. All rights reserved. | Developed & Maintained by{" "}
                         <a

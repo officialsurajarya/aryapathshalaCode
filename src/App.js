@@ -9,6 +9,7 @@ import Loader from './components/Loader';
 import Notifications from './components/Notifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import AuthPage from './components/AuthPage';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -28,6 +29,7 @@ function App() {
           <Notifications />
           <Contact />
           <Footer />
+          <AuthPage />
         </div>
       )}
     </div>

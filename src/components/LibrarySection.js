@@ -6,7 +6,6 @@ import {
     faBookOpen,
     faScroll,
     faSearch,
-    faFilter,
     faDownload,
     faEye,
     faHeart,
@@ -318,8 +317,8 @@ const LibrarySection = ({ scrollToCategory }) => {
                     <br />
                     <Row>
                         <Col lg={6} md={10} className="mx-auto">
-                            <p style={{
-                                fontSize: '1.2rem',
+                            <p className='subtitle' style={{
+                                // fontSize: '1.2rem',
                                 margin: '0 auto !important',
                                 lineHeight: '1.6',
                             }}>
@@ -708,102 +707,309 @@ const LibrarySection = ({ scrollToCategory }) => {
                                             alignItems: 'center',
                                             justifyContent: 'center',
                                             color: 'white',
-                                            fontSize: '4rem'
+                                            fontSize: '4rem',
+                                            borderRadius: '10px',
+                                            marginBottom: '1rem'
                                         }}>
                                             <FontAwesomeIcon
                                                 icon={selectedBook.category === 'mainBook' ? faBook :
                                                     selectedBook.category === 'VaykhyanBook' ? faBookOpen : faScroll}
                                             />
                                         </div>
-                                        {/* Optionally show the image if not using icon */}
-                                        {/* <img src={selectedBook.image} alt={selectedBook.title} style={{ maxWidth: '100%', borderRadius: '8px' }}/> */}
                                     </Col>
                                     <Col md={8}>
-                                        <h4 style={{ color: 'var(--main-color)', fontWeight: 700 }}>{selectedBook.titleEn}</h4>
-                                        <div className="mb-3">
-                                            <span className="me-3">
-                                                <FontAwesomeIcon icon={faUser} className="me-1" />
-                                                {selectedBook.author}
-                                            </span>
-                                            <span className="me-3">
-                                                <FontAwesomeIcon icon={faCalendar} className="me-1" />
-                                                {selectedBook.year}
-                                            </span>
-                                            <span className="me-3">
-                                                <FontAwesomeIcon icon={faLanguage} className="me-1" />
-                                                {selectedBook.language}
-                                            </span>
-                                            <span>
-                                                <FontAwesomeIcon icon={faFileAlt} className="me-1" />
-                                                {selectedBook.pages} पृष्ठ
-                                            </span>
-                                        </div>
-                                        <div className="mb-3 d-flex align-items-center gap-2">
-                                            {renderStars(selectedBook.rating)}
-                                            <span style={{ fontSize: '0.93rem', color: 'var(--ash)' }}>({selectedBook.rating})</span>
-                                        </div>
-                                        <p className="mb-2" style={{ fontSize: '1rem', color: 'var(--text-color)' }}>
-                                            {selectedBook.description}
+                                        <h4 style={{
+                                            fontFamily: "'Tiro Devanagari Sanskrit', serif",
+                                            color: 'var(--text-color)',
+                                            marginBottom: '0.5rem'
+                                        }}>
+                                            {selectedBook.title}
+                                        </h4>
+                                        <p style={{
+                                            fontSize: '1rem',
+                                            color: 'var(--ash)',
+                                            fontStyle: 'italic',
+                                            marginBottom: '1rem'
+                                        }}>
+                                            {selectedBook.titleEn}
                                         </p>
-                                        <div className="mb-3 d-flex flex-wrap gap-2">
-                                            {selectedBook.tags.map((tag, idx) => (
-                                                <span key={idx} className="badge rounded-pill px-2 py-1" style={{
-                                                    background: 'rgba(168, 198, 108, 0.17)',
-                                                    color: 'var(--accent-color)'
-                                                }}>
-                                                    {tag}
+
+                                        <div className="mb-3">
+                                            <div className="row g-2">
+                                                <div className="col-sm-6">
+                                                    <div className="d-flex align-items-center gap-2">
+                                                        <FontAwesomeIcon icon={faUser} style={{ color: 'var(--ash)' }} />
+                                                        <div>
+                                                            <small style={{ color: 'var(--ash)' }}>लेखक</small>
+                                                            <div style={{ fontWeight: '500', color: 'var(--text-color)' }}>
+                                                                {selectedBook.author}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-sm-6">
+                                                    <div className="d-flex align-items-center gap-2">
+                                                        <FontAwesomeIcon icon={faCalendar} style={{ color: 'var(--ash)' }} />
+                                                        <div>
+                                                            <small style={{ color: 'var(--ash)' }}>काल</small>
+                                                            <div style={{ fontWeight: '500', color: 'var(--text-color)' }}>
+                                                                {selectedBook.year}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-sm-6">
+                                                    <div className="d-flex align-items-center gap-2">
+                                                        <FontAwesomeIcon icon={faLanguage} style={{ color: 'var(--ash)' }} />
+                                                        <div>
+                                                            <small style={{ color: 'var(--ash)' }}>भाषा</small>
+                                                            <div style={{ fontWeight: '500', color: 'var(--text-color)' }}>
+                                                                {selectedBook.language}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-sm-6">
+                                                    <div className="d-flex align-items-center gap-2">
+                                                        <FontAwesomeIcon icon={faFileAlt} style={{ color: 'var(--ash)' }} />
+                                                        <div>
+                                                            <small style={{ color: 'var(--ash)' }}>पृष्ठ संख्या</small>
+                                                            <div style={{ fontWeight: '500', color: 'var(--text-color)' }}>
+                                                                {selectedBook.pages} पृष्ठ
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <div className="d-flex align-items-center gap-1 mb-2">
+                                                {renderStars(selectedBook.rating)}
+                                                <span style={{ fontSize: '0.9rem', color: 'var(--ash)', marginLeft: '0.5rem' }}>
+                                                    ({selectedBook.rating} रेटिंग)
                                                 </span>
-                                            ))}
-                                        </div>
-                                        <div className="d-flex gap-4 mb-2" style={{ color: 'var(--ash)' }}>
-                                            <span><FontAwesomeIcon icon={faEye} /> {selectedBook.views.toLocaleString()} दृश्य</span>
-                                            <span><FontAwesomeIcon icon={faDownload} /> {selectedBook.downloads.toLocaleString()} डाउनलोड</span>
-                                            <span><FontAwesomeIcon icon={faTags} /> {selectedBook.fileSize}, {selectedBook.format}</span>
-                                        </div>
-                                        <div className="d-flex gap-2 mt-4">
-                                            <Button
-                                                variant="primary"
-                                                style={{
-                                                    background: 'linear-gradient(135deg, var(--primary-color), var(--main-color))',
-                                                    border: 'none',
-                                                    fontWeight: 600,
-                                                    borderRadius: '24px'
-                                                }}
-                                                onClick={() => window.open(selectedBook.downloadLink || '#', '_blank')} // Adjust this when downloadLink present in your DB
-                                            >
-                                                <FontAwesomeIcon icon={faDownload} className="me-2" />
-                                                डाउनलोड करें
-                                            </Button>
-                                            <Button
-                                                variant="outline-secondary"
-                                                onClick={() => toggleFavorite(selectedBook.id)}
-                                            >
-                                                <FontAwesomeIcon icon={faHeart} style={{ color: favorites.has(selectedBook.id) ? 'crimson' : 'var(--ash)' }} className="me-2" />
-                                                {favorites.has(selectedBook.id) ? 'पसंदीदा में' : 'पसंदीदा'}
-                                            </Button>
-                                            <Button
-                                                variant="outline-secondary"
-                                                onClick={() => {
-                                                    // For actual sharing: implement share dialog or Web Share API
-                                                    window.navigator.share
-                                                        ? window.navigator.share({
-                                                            title: selectedBook.title,
-                                                            url: window.location.origin + `/library/${selectedBook.id}`
-                                                        })
-                                                        : alert('शेयरिंग समर्थित नहीं है');
-                                                }}
-                                            >
-                                                <FontAwesomeIcon icon={faShare} className="me-2" />
-                                                शेयर करें
-                                            </Button>
+                                            </div>
+
+                                            <div className="d-flex justify-content-between text-muted" style={{ fontSize: '0.9rem' }}>
+                                                <div className="d-flex align-items-center gap-1">
+                                                    <FontAwesomeIcon icon={faEye} />
+                                                    <span>{selectedBook.views.toLocaleString()} बार देखा गया</span>
+                                                </div>
+                                                <div className="d-flex align-items-center gap-1">
+                                                    <FontAwesomeIcon icon={faDownload} />
+                                                    <span>{selectedBook.downloads.toLocaleString()} डाउनलोड</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </Col>
                                 </Row>
+
+                                <hr style={{ borderColor: 'rgba(212, 175, 55, 0.2)', margin: '1rem 0' }} />
+
+                                <div className="mb-4">
+                                    <h6 style={{ color: 'var(--text-color)', marginBottom: '0.75rem' }}>विवरण</h6>
+                                    <p style={{
+                                        fontSize: '1rem',
+                                        color: 'var(--text-color)',
+                                        lineHeight: '1.6',
+                                        marginBottom: '1rem'
+                                    }}>
+                                        {selectedBook.description}
+                                    </p>
+                                    <p style={{
+                                        fontSize: '0.95rem',
+                                        color: 'var(--ash)',
+                                        lineHeight: '1.5',
+                                        fontStyle: 'italic'
+                                    }}>
+                                        {selectedBook.descriptionEn}
+                                    </p>
+                                </div>
+
+                                <div className="mb-4">
+                                    <h6 style={{ color: 'var(--text-color)', marginBottom: '0.75rem' }}>विषय टैग</h6>
+                                    <div className="d-flex flex-wrap gap-2">
+                                        {selectedBook.tags.map((tag, index) => (
+                                            <span key={index} className="badge rounded-pill px-3 py-2" style={{
+                                                background: 'rgba(168, 198, 108, 0.15)',
+                                                color: 'var(--accent-color)',
+                                                fontSize: '0.85rem',
+                                                fontWeight: '500',
+                                                border: '1px solid rgba(168, 198, 108, 0.3)'
+                                            }}>
+                                                <FontAwesomeIcon icon={faTags} className="me-1" />
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="mb-3">
+                                    <h6 style={{ color: 'var(--text-color)', marginBottom: '0.75rem' }}>फ़ाइल जानकारी</h6>
+                                    <div className="row g-3">
+                                        <div className="col-sm-4">
+                                            <div className="text-center p-3 rounded" style={{ background: 'rgba(37, 99, 235, 0.1)' }}>
+                                                <div style={{ color: 'var(--primary-color)', fontSize: '1.2rem', fontWeight: '600' }}>
+                                                    {selectedBook.format}
+                                                </div>
+                                                <small style={{ color: 'var(--ash)' }}>फॉर्मेट</small>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-4">
+                                            <div className="text-center p-3 rounded" style={{ background: 'rgba(212, 175, 55, 0.1)' }}>
+                                                <div style={{ color: 'var(--secondary-color)', fontSize: '1.2rem', fontWeight: '600' }}>
+                                                    {selectedBook.fileSize}
+                                                </div>
+                                                <small style={{ color: 'var(--ash)' }}>आकार</small>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-4">
+                                            <div className="text-center p-3 rounded" style={{ background: 'rgba(168, 198, 108, 0.1)' }}>
+                                                <div style={{ color: 'var(--accent-color)', fontSize: '1.2rem', fontWeight: '600' }}>
+                                                    {selectedBook.pages}
+                                                </div>
+                                                <small style={{ color: 'var(--ash)' }}>पृष्ठ</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </Modal.Body>
+                            <Modal.Footer style={{ borderTop: '1px solid rgba(212, 175, 55, 0.2)' }}>
+                                <div className="d-flex w-100 gap-2">
+                                    <Button
+                                        variant="outline-secondary"
+                                        onClick={() => toggleFavorite(selectedBook.id)}
+                                        style={{
+                                            borderColor: favorites.has(selectedBook.id) ? 'var(--primary-color)' : 'var(--ash)',
+                                            color: favorites.has(selectedBook.id) ? 'var(--primary-color)' : 'var(--ash)'
+                                        }}
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={faHeart}
+                                            className="me-2"
+                                            style={{
+                                                color: favorites.has(selectedBook.id) ? 'var(--primary-color)' : 'var(--ash)'
+                                            }}
+                                        />
+                                        {favorites.has(selectedBook.id) ? 'पसंदीदा से हटाएं' : 'पसंदीदा में जोड़ें'}
+                                    </Button>
+
+                                    <Button
+                                        style={{
+                                            background: 'var(--secondary-color)',
+                                            border: 'none',
+                                            color: 'white',
+                                            fontWeight: '600'
+                                        }}
+                                    >
+                                        <FontAwesomeIcon icon={faShare} className="me-2" />
+                                        साझा करें
+                                    </Button>
+
+                                    <Button
+                                        style={{
+                                            background: 'linear-gradient(135deg, var(--primary-color), var(--main-color))',
+                                            border: 'none',
+                                            color: 'white',
+                                            fontWeight: '600',
+                                            flex: 1
+                                        }}
+                                    >
+                                        <FontAwesomeIcon icon={faDownload} className="me-2" />
+                                        डाउनलोड करें ({selectedBook.fileSize})
+                                    </Button>
+                                </div>
+                            </Modal.Footer>
                         </>
                     )}
                 </Modal>
             </Container>
+
+            {/* Custom CSS */}
+            <style jsx>{`
+        .hover-card {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-card:hover {
+          transform: translateY(-8px);
+        }
+        
+        .btn-group .btn {
+          transition: all 0.3s ease;
+        }
+        
+        .btn-group .btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .badge {
+          transition: all 0.2s ease;
+        }
+        
+        .badge:hover {
+          transform: scale(1.05);
+        }
+        
+        .modal-content {
+          border-radius: 15px;
+          border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .modal-header {
+          background: linear-gradient(135deg, rgba(253, 234, 168, 0.3), rgba(250, 244, 230, 0.3));
+        }
+        
+        .form-control:focus,
+        .form-select:focus {
+          border-color: var(--secondary-color);
+          box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+        }
+        
+        @media (max-width: 768px) {
+          .btn-group {
+            flex-direction: column;
+          }
+          
+          .btn-group .btn {
+            border-radius: 25px !important;
+            margin-bottom: 0.5rem;
+          }
+          
+          .btn-group .btn:last-child {
+            margin-bottom: 0;
+          }
+        }
+        
+        /* Loading animation for book cards */
+        @keyframes bookCardLoad {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .hover-card {
+          animation: bookCardLoad 0.5s ease-out forwards;
+        }
+        
+        /* Responsive text sizing */
+        @media (max-width: 576px) {
+          .modal-dialog {
+            margin: 1rem;
+          }
+          
+          .row.g-3 > * {
+            margin-bottom: 1rem;
+          }
+        }
+      `}</style>
         </section>
     );
 };
